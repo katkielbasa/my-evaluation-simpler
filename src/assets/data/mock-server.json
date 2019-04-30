@@ -1,0 +1,31 @@
+{
+    "servers": [
+        {
+            "name": "server1",
+            "nic id": "fe74dc4c-7b9d-11e4-8c14-b8ca3a5d9ef8",
+            "cpu count": 4,
+            "memoryGb": 8,
+            "createTime": "2013-04-22T16:21:27.000Z",
+            "deployed": true,
+            "started": false
+        },
+        {
+            "name": "server2",
+            "nic id": "fe74d352525214-b8ca3a5d9ef8",
+            "cpu count": 8,
+            "memoryGb": 16,
+            "createTime": "2013-04-22T16:21:27.000Z",
+            "deployed": true,
+            "started": false
+        },
+        {
+            "name": "server3",
+            "nic id": "5sgsg5214-b8ca3a5d9ef8",
+            "cpu count": 2,
+            "memoryGb": 4,
+            "createTime": "2013-04-22T16:21:27.000Z",
+            "deployed": true,
+            "started": false
+        }
+    ]
+}

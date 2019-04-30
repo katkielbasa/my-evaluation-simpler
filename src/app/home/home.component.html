@@ -1,0 +1,365 @@
+﻿<h1>PrimeNG examples</h1>
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">Add Server</a></p> -->
+
+<h3>Png Sample Layout</h3>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-2"><p-menu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #menu [popup]="true" [model]="items"></p-menu>
+        <button type="button" pButton icon="fa fa-fw fa-list" label="Menu" (click)="menu.toggle($event)"></button></div>
+    <div class="ui-g-12 ui-md-10 ui-g-nopad">
+        <div class="ui-g-12">
+            Bar
+        </div>
+        <div class="ui-g-12 ui-g-nopad">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet, orci nec dictum convallis, ligula mauris vestibulum turpis, nec varius tortor quam at diam. Nullam a viverra nibh. In tincidunt tempor lectus quis vulputate. Pellentesque nec dui aliquam, lobortis est in, lobortis ante</div>
+                <div class="ui-g-12 ui-md-4">Maecenas vel nisi aliquet, vulputate tortor id, laoreet massa. Maecenas mattis tristique bibendum. Suspendisse vel mi dictum, vestibulum lacus quis, pulvinar quam. Proin vulputate, nibh at finibus varius, leo eros lacinia elit, nec blandit odio tellus a justo. Donec nec ex auctor, tristique nulla nec, rutrum sapien.</div>
+                <div class="ui-g-12 ui-md-4">Proin efficitur in leo eget ornare. Nam vestibulum neque sed velit sagittis sodales. Sed scelerisque hendrerit magna a hendrerit. Cras tempor sem at justo pharetra convallis. Curabitur vel sodales purus. Vestibulum interdum facilisis nulla imperdiet suscipit. Quisque lectus felis, condimentum eget hendrerit sit amet.</div>
+            </div>
+            
+            <div class="ui-g">
+                <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>  
+                <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div> 
+                <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>    
+                <div class="ui-g-6 ui-md-3"><img src="assets/showcase/images/demo/galleria/galleria1.jpg" style="width:100%"></div>      
+            </div>
+            
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">Phasellus faucibus purus volutpat mauris lacinia sodales. Ut sit amet sapien facilisis, commodo dui non, fringilla tellus. Quisque tempus facilisis nisi sodales finibus. Pellentesque neque orci, ullamcorper vitae ligula quis, dignissim euismod augue.</div>
+                <div class="ui-g-12 ui-md-6">Fusce ullamcorper congue massa, eget ullamcorper nunc lobortis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultrices dui eget dolor feugiat dapibus. Aliquam pretium leo et egestas luctus. Nunc facilisis gravida tellus.</div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12">
+        
+    </div>
+</div>
+<h1>Clarity examples</h1>
+<div class="main-container">
+        <header class="header header-6">
+                Clarity selection
+        </header>
+        <div class="content-container">
+            <div class="content-area">
+                Toootip demo
+                    <a href="..." role="tooltip" aria-haspopup="true" class="tooltip tooltip-md tooltip-bottom-right">
+                            <clr-icon shape="info-circle" size="24"></clr-icon>
+                            <span class="tooltip-content">Lorem ipsum dolor sit amet, ipsum</span>
+                        </a>
+               
+        <br>
+                Toggle demo
+                <input type="checkbox" clrToggle />
+               
+                toggle with lebel demo
+                <div><clr-toggle-wrapper>
+                        <input type="checkbox" clrToggle value="option1" name="options" />
+                        <label>Option 1</label>
+                      </clr-toggle-wrapper>
+                      <clr-toggle-wrapper>
+                        <input type="checkbox" clrToggle value="option2" name="options" />
+                        <label>Option 2</label>
+                      </clr-toggle-wrapper></div>
+                
+                      Spinners demo:<br>
+                      <span class="spinner spinner-inline">
+                            Loading...
+                        </span>
+                        <span>
+                            Loading...
+                        </span>
+                        <br>
+                    Spinner medium:<br>
+                    <span class="spinner spinner-md">
+                            Loading...
+                        </span>
+
+                 Alerts demo:<br>
+                 <div class="alert alert-danger" role="alert">
+                        <div class="alert-items">
+                            <div class="alert-item static">
+                                <div class="alert-icon-wrapper">
+                                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                                </div>
+                                <span class="alert-text">
+                                    This alert is at the top of the page.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>...</p>
+                    <div class="alert alert-success" role="alert">
+                        <div class="alert-items">
+                            <div class="alert-item static">
+                                <div class="alert-icon-wrapper">
+                                    <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+                                </div>
+                                <span class="alert-text">
+                                    This alert is in the middle of the page.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <p>...</p>
+
+                    Allert app level:
+
+                    <div class="alert alert-app-level alert-danger" style="margin-bottom:24px" role="alert">
+                            <div class="alert-items">
+                                <div class="alert-item static">
+                                    <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                                    </div>
+                                    <div class="alert-text">
+                                        Alert Type: Danger
+                                    </div>
+                                    <div class="alert-actions">
+                                        <button class="btn alert-action">Action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="close" aria-label="Close">
+                                <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                            </button>
+                        </div>
+                        <div class="alert alert-app-level alert-warning" style="margin-bottom:24px" role="alert">
+                            <div class="alert-items">
+                                <div class="alert-item static">
+                                    <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+                                    </div>
+                                    <div class="alert-text">
+                                        Alert Type: Warning
+                                    </div>
+                                    <div class="alert-actions">
+                                        <button class="btn alert-action">Action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="close" aria-label="Close">
+                                <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                            </button>
+                        </div>
+                        <div class="alert alert-app-level alert-info" role="alert">
+                            <div class="alert-items">
+                                <div class="alert-item static">
+                                    <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
+                                    </div>
+                                    <div class="alert-text">
+                                        Alert Type: Info
+                                    </div>
+                                    <div class="alert-actions">
+                                        <button class="btn alert-action">Action</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="close" aria-label="Close">
+                                <clr-icon aria-hidden="true" shape="close"></clr-icon>
+                            </button>
+                        </div>
+                    
+            </div>
+        
+
+
+
+<nav class="sidenav">
+    <section class="sidenav-content">
+        <section class="nav-group collapsible">
+            <input id="tabexample1" type="checkbox">
+            <label for="tabexample1">Collapsible Nav Element</label>
+            <ul class="nav-list">
+                <li><a class="nav-link" [routerLink]="['/servers']">Server Tables</a></li>
+                <li><a class="nav-link" [routerLink]="['/add']">Add Server</a></li>
+            </ul>
+        </section>
+        <section class="nav-group">
+            <input id="tabexample2" type="checkbox">
+            <label for="tabexample2">Default Nav Element</label>
+            <ul class="nav-list">
+                <li><a class="nav-link" [routerLink]="['/servers']">Server Tables</a></li>
+                <li><a class="nav-link" [routerLink]="['/add']">Add Server</a></li>
+            </ul>
+        </section>
+    </section>
+</nav>
+</div>
+</div>
+
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">Add Server</a></p> -->
+
+<h1>Material examples</h1>
+<mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened>
+                <button mat-button [matMenuTriggerFor]="menum">Menu</button>
+                <mat-menu #menum="matMenu">
+                  <button mat-menu-item [routerLink]="['/servers']">Server Tables</button>
+                  <button mat-menu-item [routerLink]="['/add']">Add Server</button>
+                </mat-menu>
+
+        </mat-drawer>
+        <mat-drawer-content><mat-grid-list cols="2" rowHeight="2:1">
+                <mat-grid-tile>1</mat-grid-tile>
+                <mat-grid-tile>2</mat-grid-tile>
+                <mat-grid-tile>3</mat-grid-tile>
+                <mat-grid-tile>4</mat-grid-tile>
+              </mat-grid-list>
+              </mat-drawer-content>
+      </mat-drawer-container>
+      
+
+
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">uAdd Server</a></p> -->
+<h1>Nebular examples</h1>
+
+<nb-card>
+    <nb-card-body>
+        <nb-menu [items]="itemsNb">
+      </nb-menu>
+    </nb-card-body>
+  </nb-card>
+
+  <h1>Ng bootrap examples</h1>
+
+  <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Menu</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem>Add Server</button>
+              <button ngbDropdownItem>View Servers</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p>You can easily control dropdowns programmatically using the exported dropdown instance....Really????</p>
+
+<div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+  <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
+  <div ngbDropdownMenu aria-labelledby="dropdownManual">
+    <button ngbDropdownItem>Action - 1</button>
+    <button ngbDropdownItem>Another Action</button>
+    <button ngbDropdownItem>Something else is here</button>
+  </div>
+
+  <button class="btn btn-outline-success mr-2" (click)="$event.stopPropagation(); myDrop.open();">Open from outside</button>
+  <button class="btn btn-outline-danger mr-2" (click)="$event.stopPropagation(); myDrop.close();">Close from outside</button>
+</div>
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+        <ngb-panel title="Simple">
+          <ng-template ngbPanelContent>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel>
+          <ng-template ngbPanelTitle>
+            <span>&#9733; <b>Fancy</b> title &#9733;</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+            labore sustainable VHS.
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Disabled" [disabled]="true">
+          <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+            labore sustainable VHS.
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+
+      <h1>Ngx bootrap examples</h1>
+
+      <div class="btn-group" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                    aria-controls="dropdown-basic">
+              Menu <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" href="/add">Add Server</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="/servers">Servers</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+              </li>
+            </ul>
+          </div>
+          <h1>Ng zorro examples</h1>
+
+          <ul nz-menu [nzMode]="'inline'" style="width: 240px;">
+                <li nz-submenu>
+                  <span title><i nz-icon type="mail"></i> Navigation One</span>
+                  <ul>
+                    <li nz-menu-group>
+                      <span title>Item 1</span>
+                      <ul>
+                        <li nz-menu-item>Option 1</li>
+                        <li nz-menu-item>Option 2</li>
+                      </ul>
+                    </li>
+                    <li nz-menu-group>
+                      <span title>Item 2</span>
+                      <ul>
+                        <li nz-menu-item>Option 3</li>
+                        <li nz-menu-item>Option 4</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li nz-submenu>
+                  <span title><i nz-icon type="appstore"></i> Navigation Two</span>
+                  <ul>
+                    <li nz-menu-item>Option 5</li>
+                    <li nz-menu-item>Option 6</li>
+                    <li nz-submenu>
+                      <span title>Submenu</span>
+                      <ul>
+                        <li nz-menu-item>Option 7</li>
+                        <li nz-menu-item>Option 8</li>
+                        <li nz-submenu>
+                          <span title>Submenu</span>
+                          <ul>
+                            <li nz-menu-item>Option 9</li>
+                            <li nz-menu-item>Option 10</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li nz-submenu>
+                  <span title><i nz-icon type="setting"></i> Navigation Three</span>
+                  <ul>
+                    <li nz-menu-item>Option 11</li>
+                    <li nz-menu-item>Option 12</li>
+                    <li nz-menu-item>Option 13</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h1>Ng lightening examples</h1>
+
+             <!-- <span nglDropdown [(open)]="open">
+  <button class="slds-button slds-button_neutral" nglDropdownTrigger><span class="slds-truncate">Select an item</span>
+    <ngl-icon iconName="down" variant="default" size="x-small"></ngl-icon>
+  </button>
+  <div class="slds-dropdown slds-dropdown_left">
+    <ul class="dropdown__list" role="menu">
+      <li class="slds-dropdown__item" *ngFor="let item of items;"><a role="menuitem" nglDropdownItem (click)="selected = item.value; open = false;">
+          <p class="slds-truncate">{{item.value}}</p>
+          <ngl-icon [iconName]="item.icon" variant="default" size="x-small"></ngl-icon></a></li>
+    </ul>
+  </div></span> -->
+
