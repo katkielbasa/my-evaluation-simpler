@@ -1,12 +1,29 @@
-import { Time } from '@angular/common';
 
-export class Customer{
+export class Server{
+    id: string;
     name: string;
-    nic_id: string;
-    cpu_count: number;
+    description: string;
+    cpu: CPU;
     memoryGb: number;
-    createTime: Time;
+    network: Network;
+    createTime: string;
     deployed: boolean = false;
     started: boolean = false;
+    state: string;
+
+}
+
+export class CPU{
+    count: number;
+    speed: string;
+    corePerSocket: number;
+
+}
+
+export class Network{
+    id: string;
+    privateIpv4: string;
+    vlanId: string;
+    vlanName: string;
 
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // import { routing } from './app.routing';
+import { AlertService, ServersService } from './_services';
 import { HomeComponent } from './home';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +46,10 @@ import {NglModule, NGL_ICON_CONFIG, NglIconConfig} from 'ng-lightning';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { MenusModule } from '@progress/kendo-angular-menu';
+import { AddServerComponent } from './add-server/add-server.component';
+import { EditServerComponent } from './edit-server/edit-server.component';
+import { ServerDetailsComponent } from './server-details/server-details.component';
+import { ServersTableComponent } from './servers-table/servers-table.component';
 
 
 
@@ -53,7 +58,11 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AddServerComponent,
+    EditServerComponent,
+    ServerDetailsComponent,
+    ServersTableComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +102,13 @@ registerLocaleData(en);
     ButtonsModule,
     LayoutModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US },
+  providers: [
+    ServersService,
+    AlertService,
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: NZ_I18N, useValue: en_US },
     { provide: NGL_ICON_CONFIG, useValue: <NglIconConfig>{ svgPath: '/my/path' }}],
   bootstrap: [AppComponent]
 })
