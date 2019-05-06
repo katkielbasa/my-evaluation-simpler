@@ -1,7 +1,7 @@
 
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService, ServersService } from '../_services';
 //import { Constants } from '../constants';
@@ -16,6 +16,7 @@ export class AddServerComponent implements OnInit {
   @Input()
   orgId: string;
   submitServerForm: FormGroup;
+ 
   loading = false;
   submitted = false;
 
@@ -37,15 +38,13 @@ export class AddServerComponent implements OnInit {
           , Validators.pattern('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i')]
       ],
       description: ['', Validators.required],
-      cpu: [this.formBuilder.group({
+      cpu: this.formBuilder.group({
         count: ['', Validators.required],
         speed: ['', Validators.required],
         corePerSocket: ['', Validators.required]
       }),
-      Validators.required
-      ],
       memoryGb: ['', Validators.required],
-      network: [this.formBuilder.group({
+      network: this.formBuilder.group({
         n_id: ['',
           [
             Validators.required
@@ -55,13 +54,11 @@ export class AddServerComponent implements OnInit {
         vlanId: ['', Validators.required],
         vlanName: ['', Validators.required]
 
-      }), Validators.required],
-      createdTime: ['', Validators.required],
+      }), 
+      createTime: ['', Validators.required],
       deployed: ['', Validators.required],
       started: ['', Validators.required],
       state: ['', Validators.required]
-
-
     });
   }
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { routing } from './app.routing';
 import { AlertService, ServersService } from './_services';
 import { HomeComponent } from './home';
@@ -35,7 +36,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 //ngzorro
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -71,6 +71,7 @@ registerLocaleData(en);
     MatIconModule,
     BrowserAnimationsModule,
     NgbModule,
+    ReactiveFormsModule,
     NglModule,
     MatBadgeModule,
     ProgressSpinnerModule,
