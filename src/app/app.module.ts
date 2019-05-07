@@ -10,28 +10,38 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //clarity
 import { ClarityModule } from '@clr/angular';
 //material
-import {MatMenuModule} from '@angular/material/menu'; 
-import {MatSidenavModule} from '@angular/material/sidenav'; 
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatGridListModule} from '@angular/material/grid-list'; 
-import {MatDividerModule} from '@angular/material/divider'; 
-import {MatIconModule} from '@angular/material/icon'; 
-import {MatBadgeModule} from '@angular/material/badge'; 
-import {MatListModule} from '@angular/material/list'; 
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatListModule } from '@angular/material/list';
 //primeng
-import {MenuModule} from 'primeng/menu';
-import {ButtonModule} from 'primeng/button';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {TooltipModule} from 'primeng/tooltip';
-import {ProgressBarModule} from 'primeng/progressbar';
-import {CaptchaModule} from 'primeng/captcha';
-import {ToastModule} from 'primeng/toast';
+import { MenuModule } from 'primeng/menu';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { TooltipModule } from 'primeng/tooltip';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { CaptchaModule } from 'primeng/captcha';
+import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { SliderModule } from 'primeng/slider';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { TabViewModule } from 'primeng/tabview';
+import { CheckboxModule } from 'primeng/checkbox';
 //nebular
 import { NbThemeModule, NbLayoutModule, NbMenuModule, NbButtonModule, NbCardModule } from '@nebular/theme';
 //ngbootstrap
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //ngx-bootstrao
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 //ngzorro
@@ -41,7 +51,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 //ng-lightening
-import {NglModule, NGL_ICON_CONFIG, NglIconConfig} from 'ng-lightning';
+import { NglModule, NGL_ICON_CONFIG, NglIconConfig } from 'ng-lightning';
 //KENDO
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { LayoutModule } from '@progress/kendo-angular-layout';
@@ -65,6 +75,16 @@ registerLocaleData(en);
     ServersTableComponent
   ],
   imports: [
+    TableModule,
+    SliderModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    InputMaskModule,
+    DialogModule,
+    DropdownModule,
+    InputTextModule,
+    TabViewModule,
+    CheckboxModule,
     BrowserModule,
     ClarityModule,
     MatGridListModule,
@@ -110,7 +130,7 @@ registerLocaleData(en);
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NGL_ICON_CONFIG, useValue: <NglIconConfig>{ svgPath: '/my/path' }}],
+    { provide: NGL_ICON_CONFIG, useValue: <NglIconConfig>{ svgPath: '/my/path' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

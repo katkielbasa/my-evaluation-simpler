@@ -1,3 +1,61 @@
+<p-table #dt [columns]="cols" [value]="servers" [scrollable]="true" sortMode="multiple" [globalFilterFields]="['name','s_id']"
+    [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+            {{'heathers.list_of_servers'}}
+            </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th>
+                    Delete          </th>
+            <th>
+                   Edit        </th>
+        </tr>
+        <tr>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'first_name'" style="width:100%" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'last_name'" style="width:100%" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-server let-columns="columns">
+        <tr>
+            <tr>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input type="text" [(ngModel)]="server.name">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            Name
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input type="text" [(ngModel)]="server.s_id">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            Server Id
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>{{server.count}}</td>
+                <td>{{server.speed}}</td>
+                <td>{{server.memoryGB}}</td>
+                <td>
+                    <p-button label="Delete"   (onClick)="deleteServer(server.id)"></p-button>
+                </td>
+                <td>
+                    <p-button label="Edit"   (onClick)="editServer(server)"></p-button>
+                </td>
+            </tr>
+    </ng-template>
+</p-table>
 <p>
-  servers-table works!
+    <a [routerLink]="['/add']">Add Server</a>
 </p>

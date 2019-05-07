@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { setTheme } from 'ngx-bootstrap/utils';
+import { Server, Organisation } from './_models';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

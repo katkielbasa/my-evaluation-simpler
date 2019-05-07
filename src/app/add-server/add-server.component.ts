@@ -35,7 +35,7 @@ export class AddServerComponent implements OnInit {
       s_id: ['',
         [
           Validators.required
-          , Validators.pattern('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i')]
+          , Validators.pattern('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')]
       ],
       description: ['', Validators.required],
       cpu: this.formBuilder.group({
@@ -48,7 +48,7 @@ export class AddServerComponent implements OnInit {
         n_id: ['',
           [
             Validators.required
-            , Validators.pattern('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i')]
+            , Validators.pattern('^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')]
         ],
         privateIpv4: ['', Validators.required],
         vlanId: ['', Validators.required],
@@ -70,6 +70,8 @@ export class AddServerComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.submitServerForm.invalid) {
+      console.log(this.submitServerForm.value);
+
       return;
     }
 
@@ -78,13 +80,15 @@ export class AddServerComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.log('I am in consoel');
 
           this.alertService.success('Server added', true);
-          this.router.navigate(['/Servers']);
+          this.router.navigate(['/servers']);
         },
         error => {
           this.alertService.error(error);
           this.loading = false;
+
         });
   }
 }
