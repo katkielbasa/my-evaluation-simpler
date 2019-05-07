@@ -4,102 +4,117 @@
     <form [formGroup]="submitServerForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" formControlName="name" class="form-control" 
-        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-          <div *ngIf="f.name.errors.required">Name is required</div> 
+        <input type="text" formControlName="name" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+          <div *ngIf="f.name.errors.required">Name is required</div>
         </div>
       </div>
       <div class="form-group">
         <label for="s_id">Server id:</label>
-        <input type="text" formControlName="s_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.s_id.errors }" />
+        <input type="text" formControlName="s_id" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.s_id.errors }" />
         <div *ngIf="submitted && f.s_id.errors" class="invalid-feedback">
           <div *ngIf="f.s_id.errors.required">Id is required</div>
         </div>
       </div>
       <div class="form-group">
         <label for="description">Server description:</label>
-        <input type="text" formControlName="description" class="form-control" 
-        [ngClass]="{ 'is-invalid': submitted && f.description.errors }"/>
+        <input type="text" formControlName="description" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
         <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
           <div *ngIf="f.description.errors.required">Description is required</div>
         </div>
       </div>
       <div formGroupName="cpu">
-        <h3>CPU</h3>
-        <label for="count">Count: </label>
-        <input type="number" formControlName="count" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-        />
-        <!-- <div *ngIf="submitted && f.count.errors" class="invalid-feedback">
-          <div *ngIf="f.count.errors.required">Count is required</div>
-        </div> -->
-        <label>Speed: </label>
-        <select formControlName="speed" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpu.errors }">
-          <option value="ECONOMY">ECONOMY</option>
-          <option value="STANDARD">STANDARD</option>
-          <option value="HIGHPERFORMANCE">HIGHPERFORMANCE</option>
-        </select>
-        <!-- <div *ngIf="submitted && f.speed.errors" class="invalid-feedback">
-          <div *ngIf="f.speed.errors.required">Speed is required</div>
-        </div> -->
-        <label>Core per socket:</label>
-          <input type="number" formControlName="corePerSocket" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-          />
-          <!-- <div *ngIf="submitted && f.corePerSocket.errors" class="invalid-feedback">
-            <div *ngIf="f.corePerSocket.errors.required">Core per socket is required</div>
-          </div> -->
+        <label for="cpu">CPU</label>
+        <div class="form-group">
+          <label for="count">Count: </label>
+          <input type="number" formControlName="count" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.cpu.errors }" />
+          <div *ngIf="submitted && f.cpu.controls.count.errors" class="invalid-feedback">
+            <div *ngIf="f.cpu.controls.count.errors.required">Count is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="speed">Speed: </label>
+          <select formControlName="speed" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.cpu.controls.speed.errors }">
+            <option value="ECONOMY">ECONOMY</option>
+            <option value="STANDARD">STANDARD</option>
+            <option value="HIGHPERFORMANCE">HIGHPERFORMANCE</option>
+          </select>
+          <div *ngIf="submitted && f.cpu.controls.speed.errors" class="invalid-feedback">
+            <div *ngIf="f.cpu.controls.speed.errors.required">Speed is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="corePerSocket">Core per socket:</label>
+          <input type="number" formControlName="corePerSocket" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.cpu.controls.corePerSocket.errors }" />
+          <div *ngIf="submitted && f.cpu.controls.corePerSocket.errors" class="invalid-feedback">
+            <div *ngIf="f.cpu.controls.corePerSocket.errors.required">Core per socket is required</div>
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="memoryGb">Memory GB</label>
-        <input type="number" formControlName="memoryGb" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.memoryGb.errors }"
-        />
+        <input type="number" formControlName="memoryGb" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.memoryGb.errors }" />
         <div *ngIf="submitted && f.memoryGb.errors" class="invalid-feedback">
           <div *ngIf="f.memoryGb.errors.required">memoryGb is required</div>
         </div>
       </div>
       <div formGroupName="network">
-        <h3>Network:</h3>
-        <label for="n_id">Please provide server id in form of UUID</label>
-        <input type="text" formControlName="n_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.network.controls.n_id.errors }" />
-        <div *ngIf="submitted && f.network.controls.n_id.errors" class="invalid-feedback">
-          <div *ngIf="f.network.controls.n_id.errors.required">Id is required</div>
+        <label for="network">Network:</label>
+        <div class="form-group">
+          <label for="n_id">Network ID: </label>
+          <input type="text" formControlName="n_id" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.network.controls.n_id.errors }" />
+          <div *ngIf="submitted && f.network.controls.n_id.errors" class="invalid-feedback">
+            <div *ngIf="f.network.controls.n_id.errors.required">Id is required</div>
+          </div>
         </div>
+
+       <div class="form-group">
         <label for="privateIpv4">
-          privateIpv4:
-          <input type="string" formControlName="privateIpv4" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.network.controls.privateIpv4.errors }"
-          />
-          <div *ngIf="submitted && f.network.controls.privateIpv4.errors" class="invalid-feedback">
-            <div *ngIf="f.network.controls.privateIpv4.errors.required">private Ipv4 is required</div>
-          </div>
-        </label>
-        <label>
-          vlanId:
-          <input type="number" formControlName="vlanId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-          />
-          <div *ngIf="submitted && f.vlanId.errors" class="invalid-feedback">
-            <div *ngIf="f.vlanId.errors.required">vlan Id is required</div>
-          </div>
-        </label>
-        <label>
-          vlanName:
-          <input type="string" formControlName="vlanName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-          />
-          <div *ngIf="submitted && f.vlanName.errors" class="invalid-feedback">
-            <div *ngIf="f.vlanName.errors.required">Vlan name is required</div>
-          </div>
-        </label>
+          privateIpv4: </label>
+        <input type="string" formControlName="privateIpv4" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.network.controls.privateIpv4.errors }" />
+        <div *ngIf="submitted && f.network.controls.privateIpv4.errors" class="invalid-feedback">
+          <div *ngIf="f.network.controls.privateIpv4.errors.required">private Ipv4 is required</div>
+        </div>
+      </div>
+        <div class="form-group">
+        <label for="vlanId">vlanId:</label>
+        <input type="number" formControlName="vlanId" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.network.controls.vlanId.errors }" />
+        <div *ngIf="submitted && f.network.controls.vlanId.errors" class="invalid-feedback">
+          <div *ngIf="f.network.controls.vlanId.errors.required">vlan Id is required</div>
+        </div>
+      </div>
+        <div class="form-group">
+        <label for="vlanName">vlanName:</label>
+        <input type="string" formControlName="vlanName" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.network.controls.vlanName.errors }" />
+        <div *ngIf="submitted && f.network.controls.vlanName.errors" class="invalid-feedback">
+          <div *ngIf="f.network.controls.vlanName.errors.required">Vlan name is required</div>
+        </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="createTime">Create Time</label>
-        <input type="date" formControlName="createTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createdTime.errors }"
-        />
+        <input type="date" formControlName="createTime" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.createTime.errors }" />
         <div *ngIf="submitted && f.createTime.errors" class="invalid-feedback">
           <div *ngIf="f.createTime.errors.required">Create time is required</div>
         </div>
       </div>
       <div class="form-group">
         <label for="deployed">deployed</label>
-        <select formControlName="deployed" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.deployed.errors }">
+        <select formControlName="deployed" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.deployed.errors }">
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
@@ -109,7 +124,8 @@
       </div>
       <div class="form-group">
         <label for="started">started</label>
-        <select formControlName="started" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.club_member.errors }">
+        <select formControlName="started" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.started.errors }">
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
@@ -119,8 +135,8 @@
       </div>
       <div class="form-group">
         <button [disabled]="loading" class="btn btn-primary">Submit</button>
-        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-        />
+        <img *ngIf="loading"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         <a [routerLink]="['/Servers']" class="btn btn-link">Cancel</a>
       </div>
     </form>
