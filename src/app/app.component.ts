@@ -30,16 +30,20 @@ export class AppComponent {
   private loadAllOrganisations() {
 
      this.serverService.getAllOrganisations().pipe(first()).subscribe(organisations => {
-     this.organisations = organisations['organizations'];
+       this.organisations = organisations['organizations'];
+       console.log("organisation", this.organisations);
+       this.selectedOrg_id = this.organisations[0].id;
+       console.log("load selected org", this.selectedOrg_id);
+
     });
   }
   
 
 
   ngOnInit() {
-    this.loadAllOrganisations();
-    console.log( this.loadAllOrganisations());
     
+    this.loadAllOrganisations();
+
   }
   
 

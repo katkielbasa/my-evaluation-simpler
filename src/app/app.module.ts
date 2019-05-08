@@ -60,6 +60,7 @@ import { AddServerComponent } from './add-server/add-server.component';
 import { EditServerComponent } from './edit-server/edit-server.component';
 import { ServerDetailsComponent } from './server-details/server-details.component';
 import { ServersTableComponent } from './servers-table/servers-table.component';
+import { AlertComponent } from 'src/app/_directives';
 
 
 
@@ -69,6 +70,7 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     HomeComponent,
+    AlertComponent,
     AddServerComponent,
     EditServerComponent,
     ServerDetailsComponent,

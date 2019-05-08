@@ -74,10 +74,11 @@ export class AddServerComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.submitServerForm.invalid) {
-      console.log(this.submitServerForm.value);
+      console.log("Form is invalid: ", this.submitServerForm.value);
 
       return;
     }
+    console.log("Form is valid: ", this.submitServerForm.value);
 
     this.loading = true;
     this.ServerService.addServer(this.orgId, this.submitServerForm.value)
@@ -90,6 +91,7 @@ export class AddServerComponent implements OnInit {
           this.router.navigate(['/servers']);
         },
         error => {
+          console.log("in error: ", error);
           this.alertService.error(error);
           this.loading = false;
 

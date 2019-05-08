@@ -32,9 +32,6 @@ export class ServersService {
   getAllOrganisations() {
     return this.http.get<Organisation[]>(`${Constants.API_URL}`);
   }
-  // getAllOrganisations() {
-  //   return this.http.get(`${Constants.API_URL}`);
-  // }
 
   updateServer(orgId: string, server: Server) {
     return this.http.put(`${Constants.API_URL}/${orgId}/${server.id}`, server);
