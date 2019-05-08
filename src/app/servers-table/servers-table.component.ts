@@ -78,7 +78,7 @@ export class ServersTableComponent implements OnInit {
 
   editServer(server: Server): void {
     localStorage.removeItem("editServerId");
-    localStorage.setItem("editServerId", server.id.toString());
+    localStorage.setItem("editServerId", server.id);
     this.router.navigate(['/update']);
   };
 

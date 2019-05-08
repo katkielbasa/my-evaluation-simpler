@@ -9,13 +9,11 @@
     </div>
 
   <h1>Please select Your Organisation: </h1> 
-  <div *ngFor="let organisation of organisations"></div>
-  <select formControlName="started" class="form-control"
-  [ngClass]="{ 'is-invalid': submitted && f.started.errors }">
-  <option value="true">Yes</option>
-  <option value="false">No</option>
-</select>
-
+  <form [formGroup]="organisationForm">
+    <select formControlName="organisationControl">
+      <option [value]="organisation" *ngFor="let organisation of organisations">{{organisation.name}}</option>
+    </select>
+   </form>
   <!-- </nb-layout-header> -->
 
   <!-- <nb-layout-column> -->
