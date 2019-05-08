@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AlertService, ServersService } from '../_services';
+import { AppComponent } from '../app.component';
 //import { Constants } from '../constants';
 
 @Component({
@@ -26,6 +27,7 @@ export class AddServerComponent implements OnInit {
     private router: Router,
     private ServerService: ServersService,
     private alertService: AlertService,
+    private app:AppComponent
   ) {
   }
 
@@ -66,6 +68,8 @@ export class AddServerComponent implements OnInit {
   get f() { return this.submitServerForm.controls; }
 
   onSubmit() {
+    this.orgId = this.app.selectedOrg_id;
+    console.log("My org id is: ", this.orgId)
     this.submitted = true;
 
     // stop here if form is invalid
