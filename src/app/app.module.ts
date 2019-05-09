@@ -61,7 +61,11 @@ import { EditServerComponent } from './edit-server/edit-server.component';
 import { ServerDetailsComponent } from './server-details/server-details.component';
 import { ServersTableComponent } from './servers-table/servers-table.component';
 import { AlertComponent } from 'src/app/_directives';
-
+import { TestSchemaComponent } from './test-schema/test-schema.component';
+//schemaGenerator
+import { MaterialDesignFrameworkModule } from 'angular6-json-schema-form';
+import { Bootstrap4FrameworkModule } from 'angular6-json-schema-form';
+import { NoFrameworkModule } from 'angular6-json-schema-form';
 
 
 registerLocaleData(en);
@@ -74,9 +78,13 @@ registerLocaleData(en);
     AddServerComponent,
     EditServerComponent,
     ServerDetailsComponent,
-    ServersTableComponent
+    ServersTableComponent,
+    TestSchemaComponent
   ],
   imports: [
+    NoFrameworkModule,
+    Bootstrap4FrameworkModule,
+    MaterialDesignFrameworkModule,
     TableModule,
     SliderModule,
     MultiSelectModule,

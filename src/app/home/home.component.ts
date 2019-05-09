@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
     itemsLight = [
       { value: 'Add Server', icon: 'kanban', routerLink: ['/add'] },
       { value: 'Servers Table', icon: 'table', routerLink: ['/servers'] },
+      { value: 'Edit Server', icon: 'kanban', routerLink: ['/edit'] },
+
     ];
    
     ngOnInit() {
@@ -30,7 +32,9 @@ export class HomeComponent implements OnInit {
             label: 'Available Actions ',
             items: [
                 {label: 'Add Server', routerLink: ['/add'], icon: 'pi pi-fw pi-plus'},
-                {label: 'Servers Table', routerLink: ['/servers'], icon: 'pi pi-fw pi-download'}
+                {label: 'Servers Table', routerLink: ['/servers'], icon: 'pi pi-fw pi-download'},
+                {label: 'Edit Server', routerLink: ['/edit'], icon: 'pi pi-fw pi-download'}
+
             ]
         }];
       

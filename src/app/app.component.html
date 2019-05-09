@@ -1,12 +1,13 @@
-<!-- <nb-layout> -->
+<nb-layout>
 
-  <!-- <nb-layout-header fixed> -->
-  <!-- Insert header here -->
+  <nb-layout-header fixed>
   <div style="text-align:center">
       <h1>
         Welcome to {{ title }}!
       </h1>
     </div>
+  </nb-layout-header>
+  <nb-layout-column>
 
     <h1>Please select Your Organisation: </h1> 
         <div class="form-group">
@@ -18,19 +19,17 @@
       </div>
      
 
-  <!-- </nb-layout-header> -->
 
-  <!-- <nb-layout-column> -->
 
     <!--The content below is only a placeholder and can be replaced.-->
     <alert></alert>
 
     <router-outlet></router-outlet>
     
-  <!-- </nb-layout-column> -->
+  </nb-layout-column>
 
   <!-- <nb-layout-footer fixed> -->
   <!-- Insert footer here -->
   <!-- </nb-layout-footer> -->
 
-<!-- </nb-layout> -->
+</nb-layout>
