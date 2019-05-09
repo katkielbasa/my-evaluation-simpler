@@ -6,6 +6,8 @@ import { first } from 'rxjs/operators';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OrgSelectorComponent } from '../org-selector/org-selector.component';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-servers-table',
@@ -24,25 +26,44 @@ export class ServersTableComponent implements OnInit {
   started: SelectItem[];
   speed: SelectItem[];
   state:SelectItem[];
+  orgId: string;
 
-
-  @Input()
-  org_id: string;
+  receiveMessage($event) {
+    this.orgId = $event
+    console.log("Selected Org: ", this.orgId )
+  }
 
   constructor(private serverService: ServersService,
     private formBuilder: FormBuilder,
     private router: Router,
     private alertService: AlertService,
-) {
+    private app: AppComponent
+
+    ) {
+
+ 
  }
 
+ ngAfterViewChecked(){
+  if(this.orgId == undefined){
+      console.log("it was undefined")
+
+    this.orgId = this.app.selectedOrg_id;
+  }
+
+   this.loadAllServers(this.orgId);
+
+   console.log("Selected org: ", this.app.selectedOrg_id)
+   
+  }
+ 
   ngOnInit() {
     //this.serverService.getServersSmall().then(servers => this.servers = servers);
-    this.loadAllServers(this.org_id);
+
  
     this.cols = [
       { field: 'name', header: 'Name' },
-      { field: 's_id', header: 'Server ID'},
+      { field: 'server_id', header: 'Server ID'},
       { field: 'count', header: 'CPU count' },
       { field: 'speed', header: 'CPU speed'},
       { field: 'memoryGB', header: 'Memory'},
@@ -70,9 +91,9 @@ export class ServersTableComponent implements OnInit {
     ]
   }
 
-  deleteServer(org_id: string, s_id: string)  {
-    this.serverService.deleteServer(org_id, s_id).pipe(first()).subscribe(() => {
-      this.loadAllServers(org_id)
+  deleteServer(orgId: string, s_id: string)  {
+    this.serverService.deleteServer(orgId, s_id).pipe(first()).subscribe(() => {
+      this.loadAllServers(orgId)
     });
   }
 
@@ -83,9 +104,10 @@ export class ServersTableComponent implements OnInit {
   };
 
 
-  private loadAllServers(org_id:string) {
-    this.serverService.getServersForOrg(org_id).pipe(first()).subscribe(servers => {
+  private loadAllServers(orgId:string) {
+    this.serverService.getServersForOrg(orgId).pipe(first()).subscribe(servers => {
       this.servers = servers;
+      console.log("my servers: ", this.servers)
     });
   }
 }

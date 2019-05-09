@@ -16,7 +16,7 @@ export class Server{
 export class CPU{
     count: number;
     speed: string;
-    corePerSocket: number;
+    coresPerSocket: number;
 
 }
 

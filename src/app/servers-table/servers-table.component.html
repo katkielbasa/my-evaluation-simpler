@@ -1,3 +1,5 @@
+<app-org-selector (messageEvent)="receiveMessage($event)"></app-org-selector>
+
 <p-table #dt [columns]="cols" [value]="servers" [scrollable]="true" sortMode="multiple" [globalFilterFields]="['name','s_id']"
     [paginator]="true" [rows]="10">
     <ng-template pTemplate="caption">

@@ -18,11 +18,11 @@ export class ServersService {
   //     .then(data => { return data; });
   // }
   getServerById(orgId: string, servId: string) {
-    return this.http.get<Server>(`${Constants.API_URL}${orgId}/server/${servId}`);
+    return this.http.get<Server>(`${Constants.API_URL}/${orgId}/server/${servId}`);
   }
   
   getServersForOrg(orgId: string) {
-    return this.http.get<Server[]>(`${Constants.API_URL}${orgId}/server`);
+    return this.http.get<Server[]>(`${Constants.API_URL}/${orgId}/server`);
   }
 
   addServer(orgId: string, server: Server) {

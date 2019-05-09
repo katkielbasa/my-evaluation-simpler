@@ -88,7 +88,11 @@
             "enum": [ "NORMAL", "FAILED", "MAINTENANCE" ]
         }
     }
-}' framework="material-design" (onSubmit)="onSubmit()">
+}' 
+   [(data)]="serverToEdit"
+   framework="material-design" 
+   [(model)]="editedServer"
+   (onSubmit)="onSubmit()">
     </json-schema-form>
   </div>
 </div>
