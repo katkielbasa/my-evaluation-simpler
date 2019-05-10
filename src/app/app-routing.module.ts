@@ -10,7 +10,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersTableComponent  },
   { path: 'add', component: AddServerComponent},
-  { path: 'edit', component: EditServerComponent},
+  { path: 'edit/:oid/:sid', component: EditServerComponent},
   { path: 'server', component: ServerDetailsComponent},
 
 

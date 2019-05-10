@@ -28,7 +28,6 @@ export class AppComponent {
   }
 
   private loadAllOrganisations() {
-
      this.serverService.getAllOrganisations().pipe(first()).subscribe(organisations => {
        this.organisations = organisations['organizations'];
        console.log("organisation", this.organisations);
@@ -41,9 +40,7 @@ export class AppComponent {
 
 
   ngOnInit() {
-    
     this.loadAllOrganisations();
-
   }
   
 

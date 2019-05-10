@@ -33,8 +33,8 @@ export class ServersService {
     return this.http.get<Organisation[]>(`${Constants.API_URL}`);
   }
 
-  updateServer(orgId: string, server: Server) {
-    return this.http.put(`${Constants.API_URL}/${orgId}/${server.id}`, server);
+  updateServer(orgId: string, serverId:string, server: Server) {
+    return this.http.put(`${Constants.API_URL}/${orgId}/${serverId}`, server);
   }
 
   deleteServForOrg(orgId: string){

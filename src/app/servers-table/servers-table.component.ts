@@ -27,6 +27,7 @@ export class ServersTableComponent implements OnInit {
   speed: SelectItem[];
   state:SelectItem[];
   orgId: string;
+  orgName: string;
 
   receiveMessage($event) {
     this.orgId = $event
@@ -38,28 +39,13 @@ export class ServersTableComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     private app: AppComponent
-
     ) {
-
  
  }
 
- ngAfterViewChecked(){
-  if(this.orgId == undefined){
-      console.log("it was undefined")
 
-    this.orgId = this.app.selectedOrg_id;
-  }
-
-   this.loadAllServers(this.orgId);
-
-   console.log("Selected org: ", this.app.selectedOrg_id)
-   
-  }
  
   ngOnInit() {
-    //this.serverService.getServersSmall().then(servers => this.servers = servers);
-
  
     this.cols = [
       { field: 'name', header: 'Name' },
@@ -98,16 +84,29 @@ export class ServersTableComponent implements OnInit {
   }
 
   editServer(server: Server): void {
-    localStorage.removeItem("editServerId");
-    localStorage.setItem("editServerId", server.id);
-    this.router.navigate(['/update']);
+    //localStorage.removeItem("editServerId");
+    //localStorage.setItem("editServerId", server.id);
+    console.log("edit server id ", server.id );
+
+    this.router.navigate(['/edit', this.orgId, server.id] );
   };
+
+  displayServers(){
+    if(this.orgId == undefined){
+      console.log("it was undefined")
+    this.orgId = this.app.selectedOrg_id;
+  }
+   this.loadAllServers(this.orgId);
+   console.log("Selected org: ", this.app.selectedOrg_id)
+   
+  }
 
 
   private loadAllServers(orgId:string) {
     this.serverService.getServersForOrg(orgId).pipe(first()).subscribe(servers => {
-      this.servers = servers;
-      console.log("my servers: ", this.servers)
+      this.servers = servers['server'];
+      this.orgName = servers['organizationName'];
+      console.log("my servers: ", JSON.stringify(this.servers))
     });
   }
 }

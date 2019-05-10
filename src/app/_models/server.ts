@@ -1,4 +1,3 @@
-
 export class Server{
     id: string;
     name: string;
@@ -6,7 +5,7 @@ export class Server{
     cpu: CPU;
     memoryGb: number;
     network: Network;
-    createTime: string;
+    createTime: Date;
     deployed: boolean = false;
     started: boolean = false;
     state: string;
