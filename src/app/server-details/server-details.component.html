@@ -1,3 +1,109 @@
-<p>
-  server-details works!
-</p>
+
+
+
+<div class="main-container">
+  <header class="header header-6">
+      Server details
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+        <clr-stack-view>
+            <clr-stack-header>            Server details for {{serverTodisplay.name}}
+              </clr-stack-header>
+        
+            <clr-stack-block>
+                <clr-stack-label>Name</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.name}}</clr-stack-content>
+            </clr-stack-block> 
+            <clr-stack-block>
+                <clr-stack-label>Id</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.id}}</clr-stack-content>
+            </clr-stack-block> 
+            <clr-stack-block>
+                <clr-stack-label>description</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.description}}</clr-stack-content>
+            </clr-stack-block> 
+        
+        
+            <clr-stack-block [clrSbExpanded]="true">
+                <clr-stack-label>CPU:</clr-stack-label>
+                <clr-stack-content></clr-stack-content>
+                <clr-stack-block>
+                    <clr-stack-label>Count</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.cpu.count}}</clr-stack-content>
+                </clr-stack-block>
+                <clr-stack-block>
+                    <clr-stack-label>Speed</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.cpu.speed}}</clr-stack-content>
+                </clr-stack-block>
+                <clr-stack-block>
+                    <clr-stack-label>Cores per socket</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.cpu.coresPerSocket}}</clr-stack-content>
+                </clr-stack-block>
+            </clr-stack-block>
+
+            <clr-stack-block>
+                <clr-stack-label>Memory</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.memoryGb}}</clr-stack-content>
+            </clr-stack-block> 
+
+            <clr-stack-block [clrSbExpanded]="true">
+                <clr-stack-label>Network:</clr-stack-label>
+                <clr-stack-content></clr-stack-content>
+                <clr-stack-block>
+                    <clr-stack-label>Id</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.network.id}}</clr-stack-content>
+                </clr-stack-block>
+                <clr-stack-block>
+                    <clr-stack-label>privateIpv4</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.network.privateIpv4}}</clr-stack-content>
+                </clr-stack-block>
+                <clr-stack-block>
+                    <clr-stack-label>vlanId</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.network.vlanId}}</clr-stack-content>
+                </clr-stack-block>
+                <clr-stack-block>
+                    <clr-stack-label>vlanName</clr-stack-label>
+                    <clr-stack-content>{{serverTodisplay.network.vlanName}}</clr-stack-content>
+                </clr-stack-block>
+            </clr-stack-block>
+
+            <clr-stack-block>
+                <clr-stack-label>createTime</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.createTime | date:'medium'}}</clr-stack-content>
+            </clr-stack-block> 
+
+            <clr-stack-block>
+                <clr-stack-label>deployed</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.deployed}}</clr-stack-content>
+            </clr-stack-block> 
+
+            <clr-stack-block>
+                <clr-stack-label>started</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.started}}</clr-stack-content>
+            </clr-stack-block> 
+
+            <clr-stack-block>
+                <clr-stack-label>state</clr-stack-label>
+                <clr-stack-content>{{serverTodisplay.state}}</clr-stack-content>
+            </clr-stack-block> 
+        </clr-stack-view> 
+
+
+
+
+    </div>
+    <nav class="sidenav">
+      <section class="sidenav-content">
+        <section class="nav-group collapsible">
+          <input id="tabexample1" type="checkbox">
+          <label for="tabexample1">Actions</label>
+          <ul class="nav-list">
+            <li><a class="nav-link" [routerLink]="['/servers']">Server Tables</a></li>
+            <li><a class="nav-link" [routerLink]="['/add']">Add Server</a></li>
+          </ul>
+        </section>
+      </section>
+    </nav>
+  </div>
+</div>

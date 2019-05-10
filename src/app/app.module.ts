@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { routing } from './app.routing';
 import { AlertService, ServersService } from './_services';
@@ -139,6 +140,7 @@ registerLocaleData(en);
   providers: [
     ServersService,
     AlertService,
+    DatePipe,
     // { provide: LocationStrategy, useClass: HashLocationStrategy },
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

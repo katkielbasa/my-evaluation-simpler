@@ -5,7 +5,7 @@ export class Server{
     cpu: CPU;
     memoryGb: number;
     network: Network;
-    createTime: Date;
+    createTime: number;
     deployed: boolean = false;
     started: boolean = false;
     state: string;

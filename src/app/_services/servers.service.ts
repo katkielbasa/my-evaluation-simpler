@@ -34,7 +34,7 @@ export class ServersService {
   }
 
   updateServer(orgId: string, serverId:string, server: Server) {
-    return this.http.put(`${Constants.API_URL}/${orgId}/server/${serverId}`, server);
+    return this.http.post(`${Constants.API_URL}/${orgId}/server/${serverId}`, server);
   }
 
   deleteServForOrg(orgId: string){

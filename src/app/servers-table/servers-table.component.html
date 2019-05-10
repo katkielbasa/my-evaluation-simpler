@@ -1,5 +1,5 @@
 <app-org-selector (messageEvent)="receiveMessage($event)"></app-org-selector>
-<p-button (onClick)="displayServers()">Show servers</p-button>
+<p-button (onClick)="displayServers()">SHOW</p-button>
 <p-table #dt [columns]="cols" [value]="servers" [scrollable]="true" sortMode="multiple" [globalFilterFields]="['name','s_id']"
     [paginator]="true" [rows]="10">
     <ng-template pTemplate="caption">List of servers for {{orgName}}</ng-template>
@@ -11,6 +11,7 @@
             </th>
             <th>Delete</th>
             <th>Edit</th>
+            <th>View details</th>
         </tr>
         <tr>
             <th *ngFor="let col of columns" [ngSwitch]="col.field">
@@ -32,28 +33,22 @@
                         </ng-template>
                     </p-cellEditor>
                 </td>
-                <td pEditableColumn>
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input type="text" [(ngModel)]="server.id">
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{server.id}}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
+                <td>{{server.id}}</td>
                 <td>{{server.cpu.count}}</td>
                 <td>{{server.cpu.speed}}</td>
                 <td>{{server.memoryGb}}</td>
-                <td>{{server.createTime}}</td>
+                <td>{{server.createTime | date:'medium'}}</td>
                 <td>{{server.started}}</td>
                 <td>{{server.deployed}}</td>
                 <td>{{server.state}}</td>
                 <td>
-                    <p-button label="Delete"   (onClick)="deleteServer(orgId, server.id)"></p-button>
+                    <p-button label="Delete"   (onClick)="showDialog(server)"></p-button>
                 </td>
                 <td>
                     <p-button label="Edit"   (onClick)="editServer(server)"></p-button>
+                </td>
+                <td>
+                    <p-button label="Show"   (onClick)="viewDetails(server)"></p-button>
                 </td>
             </tr>
     </ng-template>
@@ -61,3 +56,11 @@
 <p>
     <a [routerLink]="['/add']">Add Server</a>
 </p>
+<p-dialog header="Deleting server" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+    <p>Are You sure You want to delete the server?</p>
+        <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="deleteServer(orgId, serId)" label="Yes"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No" class="ui-button-secondary"></button>
+        </p-footer>
+</p-dialog>

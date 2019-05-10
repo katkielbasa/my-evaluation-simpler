@@ -5,9 +5,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { first } from 'rxjs/operators';
 import { AlertService, ServersService } from '../_services';
 import { AppComponent } from '../app.component';
-import { OrgSelectorComponent } from '../org-selector/org-selector.component';
-//import { Constants } from '../constants';
-
 
 @Component({
   selector: 'app-add-server',
@@ -24,7 +21,6 @@ export class AddServerComponent implements OnInit {
 
   loading = false;
   submitted = false;
-  createDate: number = Date.now();
   payload: string
 
   constructor(
@@ -33,7 +29,6 @@ export class AddServerComponent implements OnInit {
     private ServerService: ServersService,
     private alertService: AlertService,
     private app: AppComponent
-   // private org: OrgSelectorComponent
   ) {
   }
   receiveMessage($event) {
@@ -136,43 +131,34 @@ export class AddServerComponent implements OnInit {
 
   onSubmit() {
     if(this.orgId == undefined){
-      console.log("it was undefined")
 
     this.orgId = this.app.selectedOrg_id;
     }
-    console.log("My org id is: ", this.orgId)
     this.submitted = true;
 
     this.payload = JSON.stringify(this.submitServerForm.value);
-    console.log("Payload: ", this.payload);
-    console.log("before: ", JSON.stringify(this.submitServerForm.value));
+   // console.log("payload: ", JSON.stringify(this.submitServerForm.value));
 
-    // stop here if form is invalid
     if (this.submitServerForm.invalid) {
-      console.log("Form is invalid: ", this.submitServerForm.value);
+    //  console.log("Form is invalid: ", this.submitServerForm.value);
 
       return;
     }
-    console.log("Form is valid: ", this.submitServerForm.value);
-    console.log("Create date: ", this.submitServerForm.value.createDate);
+    // console.log("Form is valid: ", this.submitServerForm.value);
+    // console.log("Create date: ", this.submitServerForm.value.createDate);
 
     this.loading = true;
     this.ServerService.addServer(this.orgId, this.submitServerForm.value)
       .pipe(first())
       .subscribe(
         data => {
-          console.log("This is what i pass: ", this.orgId)
-
-          console.log('I am in consoel');
-
+          console.log("this.submitServerForm ", this.submitServerForm)
           this.alertService.success('Server added', true);
           this.router.navigate(['/servers']);
         },
         error => {
-          console.log("in error: ", error);
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.loading = false;
-
         });
   }
 }

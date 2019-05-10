@@ -15,16 +15,18 @@ import { AppComponent } from '../app.component';
 })
 export class ServersTableComponent implements OnInit {
 
-  servers: Server[];
+  private servers: Server[];
 
   cols: any[];
 
-  deployed: SelectItem[];
-  started: SelectItem[];
-  speed: SelectItem[];
-  state:SelectItem[];
-  orgId: string;
-  orgName: string;
+  private deployed: SelectItem[];
+  private started: SelectItem[];
+  private speed: SelectItem[];
+  private state:SelectItem[];
+  private orgId: string;
+  private serId:string;
+  private orgName: string;
+  private display: boolean = false;
 
   receiveMessage($event) {
     this.orgId = $event
@@ -69,20 +71,25 @@ export class ServersTableComponent implements OnInit {
   }
 
   deleteServer(orgId: string, s_id: string)  {
+    this.display = false;
+
     this.serverService.deleteServer(orgId, s_id).pipe(first()).subscribe(() => {
       this.alertService.success('Server deleted', true);
-      //this.loadAllServers(orgId)
+      this.loadAllServers(orgId)
     },
     error => {
       console.log("in error: ", error);
       this.alertService.error(error);
     });
   }
+  viewDetails(server: Server): void {
+    this.router.navigate(['/viewDetails', this.orgId, server.id] );
 
+  }
 
   editServer(server: Server): void {
   //  console.log("edit server id ", server.id );
-    this.router.navigate(['/edit', this.orgId,server.id] );
+    this.router.navigate(['/edit', this.orgId, server.id] );
   };
 
   displayServers(){
@@ -90,10 +97,14 @@ export class ServersTableComponent implements OnInit {
     this.orgId = this.app.selectedOrg_id;
   }
    this.loadAllServers(this.orgId);
-  // console.log("Selected org: ", this.app.selectedOrg_id)
    
   }
 
+
+  showDialog(server:Server) {
+      this.display = true;
+      this.serId = server.id;
+  }
 
   private loadAllServers(orgId:string) {
     this.serverService.getServersForOrg(orgId).pipe(first()).subscribe(servers => {
