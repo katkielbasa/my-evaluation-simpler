@@ -88,10 +88,11 @@ export class EditServerComponent implements OnInit {
           this.router.navigate(['/servers']);
         },
         error => {
-          console.log("cos sie spierdzieliło");
-          this.alertService.error(error);
+          this.alertService.error(error.message);
           this.loading = false;
-
+          console.log("error", error)
+          console.log("error body", error.error)
+          console.log("error status", error.status)
         });
   }
 }

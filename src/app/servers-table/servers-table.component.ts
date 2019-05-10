@@ -1,12 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Server } from '../_models';
 import { ServersService, AlertService } from '../_services';
-import { SortEvent } from 'primeng/api';
 import { first } from 'rxjs/operators';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { OrgSelectorComponent } from '../org-selector/org-selector.component';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -33,18 +30,12 @@ export class ServersTableComponent implements OnInit {
     this.orgId = $event
     console.log("Selected Org: ", this.orgId )
   }
-
   constructor(private serverService: ServersService,
-    private formBuilder: FormBuilder,
     private router: Router,
     private alertService: AlertService,
     private app: AppComponent
     ) {
- 
  }
-
-
- 
   ngOnInit() {
  
     this.cols = [
@@ -79,25 +70,27 @@ export class ServersTableComponent implements OnInit {
 
   deleteServer(orgId: string, s_id: string)  {
     this.serverService.deleteServer(orgId, s_id).pipe(first()).subscribe(() => {
-      this.loadAllServers(orgId)
+      this.alertService.success('Server deleted', true);
+      //this.loadAllServers(orgId)
+    },
+    error => {
+      console.log("in error: ", error);
+      this.alertService.error(error);
     });
   }
 
-  editServer(server: Server): void {
-    //localStorage.removeItem("editServerId");
-    //localStorage.setItem("editServerId", server.id);
-    console.log("edit server id ", server.id );
 
-    this.router.navigate(['/edit', this.orgId, server.id] );
+  editServer(server: Server): void {
+  //  console.log("edit server id ", server.id );
+    this.router.navigate(['/edit', this.orgId,server.id] );
   };
 
   displayServers(){
     if(this.orgId == undefined){
-      console.log("it was undefined")
     this.orgId = this.app.selectedOrg_id;
   }
    this.loadAllServers(this.orgId);
-   console.log("Selected org: ", this.app.selectedOrg_id)
+  // console.log("Selected org: ", this.app.selectedOrg_id)
    
   }
 
@@ -106,7 +99,7 @@ export class ServersTableComponent implements OnInit {
     this.serverService.getServersForOrg(orgId).pipe(first()).subscribe(servers => {
       this.servers = servers['server'];
       this.orgName = servers['organizationName'];
-      console.log("my servers: ", JSON.stringify(this.servers))
+     // console.log("my servers: ", JSON.stringify(this.servers))
     });
   }
 }

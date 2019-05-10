@@ -4,7 +4,6 @@
 <select class="form-control" (change)="selectChangeHandler($event)">
     <option *ngFor="let organisation of organisations" [value]="organisation.id">{{organisation.name}}</option>
 </select>
-<!-- <button (click)="sendMessageToParent(messageToSendC)">Send to Parent</button> -->
 <p>
   <span>You selected: </span><b>{{selectedOrg_id}}</b></p>
 </div>

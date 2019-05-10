@@ -14,7 +14,6 @@ export class OrgSelectorComponent implements OnInit {
 
 
   organisations: Organisation [];
-  @Output() 
   selectedOrg_id: string;
 
   @Output() 
@@ -33,15 +32,12 @@ export class OrgSelectorComponent implements OnInit {
        this.selectedOrg_id = this.organisations[0].id;
     });
   }
-  
-
 
   ngOnInit() {
     
     this.loadAllOrganisations();
 
   }
-  
 
   selectChangeHandler (event: any): void {
     this.selectedOrg_id = event.target.value;
